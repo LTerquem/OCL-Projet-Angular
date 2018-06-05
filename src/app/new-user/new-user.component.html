@@ -1,0 +1,13 @@
+<h4 class="text-center">Renseignez vos informations pour créer un nouvel utilisateur</h4>
+<div class="container col-lg-6">
+  <form [formGroup]="newUserForm" (ngSubmit)="onCreateNewUser()">
+    <div class="form-group">
+      <label for="email">Adresse mail :</label>
+      <input type="email" class="form-control" formControlName="email">
+      <label for="password">Mot de passe :</label>
+      <input type="password" class="form-control" formControlName="password">
+    </div>
+    <button type="submit" name="button" class="btn btn-outline-success" [disabled]="newUserForm.invalid">Enregistrer l'utilisateur</button>
+  </form>
+  <p class="text-danger"> {{ errorMessage }}</p>
+</div>

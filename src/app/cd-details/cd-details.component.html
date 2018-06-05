@@ -1,0 +1,5 @@
+<h2>{{ cd.title }}</h2>
+<img style="max-width:400px;" *ngIf="cd.cover" [src]="cd.cover">
+<h4>Par {{ cd.author }}</h4>
+<a routerLink="/list">Retour</a>
+<button type="button" class="btn btn-outline-danger" (click)="onDeleteThisCd()">Supprimer</button>
