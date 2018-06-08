@@ -35,7 +35,7 @@ export class AuthComponent implements OnInit {
 
   onLogIn() {
     const formValue = this.authForm.value;
-    const signingUser : new User = {email:formValue["email"], password: formValue["password"]};
+    const signingUser : User = {email:formValue["email"], password: formValue["password"]};
     this.authService.signIn(signingUser).then(
       () => {
         console.log("Utilisateur connecté avec succès !");
@@ -46,7 +46,7 @@ export class AuthComponent implements OnInit {
   }
 
   onLogOut() {
-    this.authService.logOut();
+    this.authService.signOut();
   }
 
 }

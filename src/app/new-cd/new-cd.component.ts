@@ -37,7 +37,7 @@ export class NewCdComponent implements OnInit {
 
   onSubmitForm() {
     const formValue = this.cdForm.value
-    var newDisc: Disc = {title: formValue["title"], author: formValue["author"]};
+    var newDisc = new Disc(formValue["title"],formValue["author"]);
     if(this.fileUrl) {newDisc.cover = this.fileUrl;}
     this.discService.addNewDisc(newDisc);
     this.router.navigate(["/list"]);

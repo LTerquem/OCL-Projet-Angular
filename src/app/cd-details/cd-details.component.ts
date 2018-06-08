@@ -11,12 +11,12 @@ import { Disc } from "../models/Disc.model";
 })
 export class CdDetailsComponent implements OnInit {
 
-  cd : Disc = {title: "", author: ""};
+  cd = new Disc("","");
 
   constructor(
     private route: ActivatedRoute,
     private discService: DiscService,
-    private router: Router,
+    private router: Router
   ) { }
 
   ngOnInit() {

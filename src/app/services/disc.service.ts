@@ -6,7 +6,7 @@ import * as firebase from "firebase";
 @Injectable()
 export class DiscService {
 
-  discs : Disc[] = this.getCdsFromServer();
+  discs : Disc[];
 
   discSubject = new Subject<Disc[]>();
 
@@ -14,7 +14,9 @@ export class DiscService {
     this.discSubject.next(this.discs);
   }
 
-  constructor() {}
+  constructor() {
+    this.getCdsFromServer();
+  }
 
   addNewDisc(newDisc: Disc) {
     this.discs.push(newDisc);
@@ -27,7 +29,7 @@ export class DiscService {
   }
 
   getCdsFromServer() {
-    firebase.database().ref("/discs").on("value", (data:DataSnapShot) => {
+    firebase.database().ref("/discs").on("value", (data:firebase.database.DataSnapshot) => {
       this.discs = data.val() ? data.val() : [];
       this.emitDiscSubject();
       }
@@ -38,7 +40,7 @@ export class DiscService {
     return new Promise(
       (resolve, reject) => {
         firebase.database().ref("/discs/"+id).once("value").then(
-          (data: DataSnapShot) => {
+          (data: firebase.database.DataSnapshot) => {
             resolve(data.val());
           },
           (error) => {reject(error);}

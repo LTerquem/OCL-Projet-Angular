@@ -35,7 +35,7 @@ export class NewUserComponent implements OnInit {
 
   onCreateNewUser() {
     const formValue = this.newUserForm.value;
-    const newUser: new User = {email: formValue["email"], password: formValue["password"]}
+    var newUser: User = {email: formValue["email"], password: formValue["password"]};
     this.authService.newUser(newUser).then(
       () => {
         console.log("Utilisateur " + newUser.email + " créé avec succès !");

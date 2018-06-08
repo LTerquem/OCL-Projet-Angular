@@ -2,7 +2,7 @@
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li><a class="nav-link" routerLink="/home" routerLinkActive="active">Accueil</a></li>
-      <li><a class="nav-link" routerLink="/list" routerLinkActive="active">Mes CDs</a></li>
+      <li><a class="nav-link" routerLink="/list" routerLinkActive="active" *ngIf="isAuth">Mes CDs</a></li>
       <li><a class="nav-link" routerLink="/auth" routerLinkActive="active" *ngIf="!isAuth">Connexion</a></li>
       <li><a class="nav-link" routerLink="/new-user" routerLinkActive="active" *ngIf="!isAuth">Nouvel utilisateur</a></li>
     </ul>
